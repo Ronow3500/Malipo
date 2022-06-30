@@ -170,25 +170,26 @@
           @endcan
           @can('is-staff')
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link active">
-              
-              <p>
-                User Guide
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('guide.index') }}" class="nav-link">
-                  <i class="fas fa-file-alt nav-icon"></i>
-                  <p>User Guide</p>
-                </a>
-              </li>
-            </ul>
-            </ul>
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link active">
+                
+                <p>
+                  User Guide
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('guide.index') }}" class="nav-link">
+                    <i class="fas fa-file-alt nav-icon"></i>
+                    <p>User Guide</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
           @endcan
       </nav>
       <!-- /.sidebar-menu -->

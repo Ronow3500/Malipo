@@ -73,7 +73,8 @@ class SmsController extends Controller
         //
     }
 
-    public function send(){
+    public function send()
+    {
         $username   = "tifasms";
         $apiKey     = "49f17fbcd97dfd4ad8c87a6cb59c0196565ce9f79d6034929a9c853a54ef25e2";
 
