@@ -44,13 +44,24 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
+        // Register View
         Fortify::registerView(function (){
             return view('auth.register');
-        }
-        );
+        });
+
+        // Login View
         Fortify::loginView(function (){
             return view('auth.login');
-        }
-        );
+        });
+
+        /* Forgot Password */
+        Fortify::requestPasswordResetLinkView(function (){
+            return view('auth.forgot-password');
+        });
+
+        // Reset Password View
+        Fortify::resetPasswordView(function ($request){
+            return view('auth.reset-password', ['request' => $request]);
+        });
     }
 }

@@ -6,7 +6,9 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>{{ config('app.name', $company_name) }} | {{ $title ?? '' }} </title>
+  <title>
+    {{ config('app.name', $company_name) }} | {{ $title ?? '' }}
+  </title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ asset('./assets/plugins/fontawesome-free/css/all.min.css') }}">

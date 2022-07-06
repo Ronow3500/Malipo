@@ -16,14 +16,23 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
+        //Role::factory()->times(10)->create();
+
+        // Manages RDMS
+        DB::table('roles')->insert([
+            'name' => 'System Developer'
+        ]);
+        // Manages RDMS
         DB::table('roles')->insert([
             'name' => 'System Admin'
         ]);
-
+        // Manages FTP
         DB::table('roles')->insert([
-            'name' => 'Finance'
+            'name' => 'File Manager'
         ]);
-
+        DB::table('roles')->insert([
+            'name' => 'Manager'
+        ]);
         DB::table('roles')->insert([
             'name' => 'Staff'
         ]);

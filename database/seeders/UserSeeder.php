@@ -14,6 +14,15 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->times(10)->create();
+        User::create([
+            'name' => 'Kenneth Kipchumba',
+            'email' => 'kenneth.kipchumba@tifaresearch.com',
+            'password' => Hash::make('Arsenal3500')
+        ]);
+        User::create([
+            'name' => 'Kelvin Masika',
+            'email' => 'kelvin.masika@tifaresearch.com',
+            'password' => Hash::make('password')
+        ]);
     }
 }
