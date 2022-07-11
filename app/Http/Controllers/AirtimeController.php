@@ -32,18 +32,6 @@ class AirtimeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function upload_csv()
-    {
-        $data['header'] = 'Upload CSV File';
-
-        return view('home.upload_csv', $data);
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -124,6 +112,9 @@ class AirtimeController extends Controller
 
               //SendSms::dispatch($value[1], $value[0], $value[3]);
               sendAirtime::dispatch($value[1], $value[2]);
+
+              /* Create function to Send Email to notify of this
+               action to admin@tifaresearch.com*/
                }
             }
 

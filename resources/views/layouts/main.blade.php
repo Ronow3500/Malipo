@@ -36,12 +36,14 @@
       <li class="nav-item bg-light d-none d-sm-inline-block">
         <a href="{{ route('dashboard') }}" class="nav-link">Home</a>
       </li>
+      @can('is-admin')
       <li class="nav-item bg-warning d-none d-sm-inline-block">
         <a href="{{ route('system_logs') }}" class="nav-link">System Logs</a>
       </li>
       <li class="nav-item bg-lime d-none d-sm-inline-block">
         <a target="blank" href="{{ url('admin/log-reader') }}" class="nav-link">Log Reader</a>
       </li>
+      @endcan
     </ul>
 
     <!-- Right navbar links -->
@@ -80,123 +82,7 @@
       <span class="brand-text font-weight-light">{{ config('app.name') ?? '' }}</span>
     </a>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ asset('assets/dist/img/avatar.png') }}" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">
-            {{ auth()->user()->name ?? '' }}
-          </a>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-      @can('is-admin')
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link active">
-              
-              <p>
-                User Management
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('admin.user.index') }}" class="nav-link">
-                  <i class="fas fa-users nav-icon"></i>
-                  <p>System Users</p>
-                </a>
-              </li>
-
-            </ul>  
-          </ul>
-        @endcan
-        @can('is-finance')
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link active">
-              
-              <p>
-                Finance
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('finance.index') }}" class="nav-link">
-                  <i class="fas fa-coins nav-icon"></i>
-                  <p>Account Top Up</p>
-                </a>
-              </li>
-
-            </ul>  
-          </ul>
-        @endcan
-        @can('is-staff')
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
-              
-              <p>
-                Incentives
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('dashboard') }}" class="nav-link">
-                  <i class="fas fa-tachometer-alt nav-icon"></i>
-                  <p>Dashboard</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('upload_csv') }}" class="nav-link">
-                  <i class="fas fa-file-upload nav-icon"></i>
-                  <p>Upload CSV File</p>
-                </a>
-              </li>
-            </ul>
-            </ul>
-          @endcan
-          @can('is-staff')
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link active">
-                
-                <p>
-                  User Guide
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="{{ route('guide.index') }}" class="nav-link">
-                    <i class="fas fa-file-alt nav-icon"></i>
-                    <p>User Guide</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          @endcan
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
+    @include('partials.sidebar')
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
@@ -205,10 +91,15 @@
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
-          <div class="col-sm-6">
+          <div class="col-sm-1">
+            <a class="btn btn-warning" href="{{ url()->previous() }}">
+              <i class="fas fa-arrow-left"></i>
+            </a>
+          </div>
+          <div class="col-sm-7">
             <h1 class="m-0 text-dark">{{ $header ?? '' }}</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
+          <div class="col-sm-4">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Incentives</a></li>
               <li class="breadcrumb-item active">{{ $header ?? '' }}</li>

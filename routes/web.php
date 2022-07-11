@@ -6,6 +6,7 @@ use App\Http\Controllers\AirtimeController;
 use Admin\UserController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\ProjectController;
 
 //use UserGuideController;
 
@@ -50,9 +51,10 @@ Route::middleware(['auth'])->group(function ()
 {
     Route::post('dashboard', [AirtimeController::class, 'index']);
     Route::get('dashboard', [AirtimeController::class, 'index'])->name('dashboard');
-    Route::get('upload_csv', [AirtimeController::class, 'upload_csv'])->name('upload_csv');
-
+    Route::get('create_project', [ProjectController::class, 'create'])->name('create_project');
+    Route::get('airtime', [AirtimeController::class, 'upload_csv'])->name('airtime');
     Route::post('import_csv', [AirtimeController::class, 'import_csv'])->name('import_csv');
+    Route::resource('project', ProjectController::class);
 
     Route::get('success', function () {
     return view('home.success');
