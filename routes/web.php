@@ -6,6 +6,7 @@ use App\Http\Controllers\AirtimeController;
 use Admin\UserController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\LogController;
+use App\Http\Controllers\MtechController;
 use App\Http\Controllers\ProjectController;
 
 //use UserGuideController;
@@ -55,6 +56,9 @@ Route::middleware(['auth'])->group(function ()
     Route::get('airtime', [AirtimeController::class, 'upload_csv'])->name('airtime');
     Route::post('import_csv', [AirtimeController::class, 'import_csv'])->name('import_csv');
     Route::resource('project', ProjectController::class);
+    // MTECH SMS Routes
+    Route::get('sms', [MtechController::class, 'sms'])->name('sms');
+    Route::post('import_recepients', [MtechController::class, 'import_recepients'])->name('import_recepients');
 
     Route::get('success', function () {
     return view('home.success');

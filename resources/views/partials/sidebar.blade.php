@@ -80,7 +80,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('sms') }}" class="nav-link">
                   <i class="fas fa-signal nav-icon"></i>
                   <p>SMS</p>
                 </a>
