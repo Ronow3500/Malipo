@@ -22,7 +22,7 @@
             <a href="#" class="nav-link active">
               
               <p>
-                User Management
+                Sys Admin
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -30,7 +30,7 @@
               <li class="nav-item">
                 <a href="{{ route('admin.user.index') }}" class="nav-link">
                   <i class="fas fa-users nav-icon"></i>
-                  <p>System Users</p>
+                  <p>User Management</p>
                 </a>
               </li>
 

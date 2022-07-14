@@ -59,6 +59,7 @@ Route::middleware(['auth'])->group(function ()
     // MTECH SMS Routes
     Route::get('sms', [MtechController::class, 'sms'])->name('sms');
     Route::post('import_recepients', [MtechController::class, 'import_recepients'])->name('import_recepients');
+    Route::get('sms_balance', [FinanceController::class, 'sms_balance']);
 
     Route::get('success', function () {
     return view('home.success');
