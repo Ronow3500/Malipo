@@ -7,7 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>
-    {{ config('app.name', $company_name) }} | {{ $title ?? '' }}
+    {{ config('app.name', $company_name) }} | {{ auth()->user()->name ?? $title }}
   </title>
 
   <!-- Font Awesome Icons -->
